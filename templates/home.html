@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+
+{% block title %}SafariGrants — Unlock Opportunities. Explore Africa.{% endblock %}
+
+{% block content %}
+
+<!-- ======= HERO SECTION ======= -->
+<section class="relative min-h-screen flex flex-col justify-center overflow-hidden">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&q=80"
+             alt="Africa Safari"
+             class="w-full h-full object-cover"/>
+        <div class="absolute inset-0"
+             style="background:linear-gradient(to bottom, rgba(44,24,16,0.3) 0%, rgba(44,24,16,0.5) 50%, rgba(44,24,16,0.95) 100%);">
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
+        <div class="max-w-4xl">
+
+            <!-- Badge -->
+            <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+                <span class="w-2 h-2 bg-sunset rounded-full animate-pulse"></span>
+                <span class="text-white text-sm font-medium">Africa's #1 Safari & Opportunities Platform</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="font-display text-6xl md:text-8xl font-black text-white leading-none mb-6">
+                Where Africa's
+                <span class="block text-transparent bg-clip-text"
+                      style="background-image:linear-gradient(90deg,#E8651A,#D4A017);">
+                    Wild Beauty
+                </span>
+                Meets Your
+                <span class="block text-transparent bg-clip-text"
+                      style="background-image:linear-gradient(90deg,#D4A017,#E8651A);">
+                    Future.
+                </span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-gray-200 text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
+                Discover breathtaking safari destinations across 54 African countries — and unlock grants, scholarships, fellowships, internships and jobs that transform lives.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-16">
+                <a href="#explore"
+                   class="inline-flex items-center justify-center space-x-2 text-white px-8 py-4 rounded-full text-lg font-bold transition-all transform hover:scale-105 shadow-2xl"
+                   style="background:#E8651A;">
+                    <span>🌍 Explore Africa</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#opportunities"
+                   class="inline-flex items-center justify-center space-x-2 border-2 border-white/50 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-earth transition-all backdrop-blur-sm">
+                    <span>🎓 Find Opportunities</span>
+                </a>
+            </div>
+
+            <!-- Quick Search -->
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4"
+                 x-data="{ tab: 'tourism' }">
+
+                <!-- Tab Switcher -->
+                <div class="flex space-x-2 mb-4">
+                    <button @click="tab = 'tourism'"
+                            :class="tab === 'tourism' ? 'text-white' : 'text-white hover:bg-white/10'"
+                            :style="tab === 'tourism' ? 'background:#E8651A;' : ''"
+                            class="px-4 py-2 rounded-xl font-semibold transition-all text-sm">
+                        🌍 Safari & Travel
+                    </button>
+                    <button @click="tab = 'opportunities'"
+                            :class="tab === 'opportunities' ? 'text-white' : 'text-white hover:bg-white/10'"
+                            :style="tab === 'opportunities' ? 'background:#E8651A;' : ''"
+                            class="px-4 py-2 rounded-xl font-semibold transition-all text-sm">
+                        🎓 Opportunities
+                    </button>
+                </div>
+
+                <!-- Tourism Search -->
+                <div x-show="tab === 'tourism'" class="flex flex-col md:flex-row gap-3">
+                    <input type="text" placeholder="🔍 Where in Africa?"
+                           class="flex-1 bg-white/10 border border-white/20 text-white placeholder-gray-300 rounded-xl px-4 py-3 focus:outline-none">
+                    <select class="bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 focus:outline-none">
+                        <option class="text-gray-800">All Experiences</option>
+                        <option class="text-gray-800">🦁 Safari & Wildlife</option>
+                        <option class="text-gray-800">🏖️ Beach & Coastal</option>
+                        <option class="text-gray-800">⛰️ Mountain & Hiking</option>
+                        <option class="text-gray-800">🏛️ Cultural & Historical</option>
+                    </select>
+                    <button class="text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap"
+                            style="background:#E8651A;">Search</button>
+                </div>
+
+                <!-- Opportunities Search -->
+                <div x-show="tab === 'opportunities'" style="display:none;"
+                     class="flex flex-col md:flex-row gap-3">
+                    <input type="text" placeholder="🔍 Search grants, scholarships, jobs..."
+                           class="flex-1 bg-white/10 border border-white/20 text-white placeholder-gray-300 rounded-xl px-4 py-3 focus:outline-none">
+                    <select class="bg-white/10 border border-white/20 text-white rounded-xl px-4 py-3 focus:outline-none">
+                        <option class="text-gray-800">All Types</option>
+                        <option class="text-gray-800">💰 Grants</option>
+                        <option class="text-gray-800">🎓 Scholarships</option>
+                        <option class="text-gray-800">🤝 Fellowships</option>
+                        <option class="text-gray-800">💼 Internships</option>
+                        <option class="text-gray-800">👔 Jobs</option>
+                    </select>
+                    <button class="text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap"
+                            style="background:#E8651A;">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-6 py-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div>
+                    <p class="text-3xl md:text-4xl font-black font-display" style="color:#E8651A;">54</p>
+                    <p class="text-gray-300 text-sm mt-1">African Countries</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-black font-display" style="color:#E8651A;">500+</p>
+                    <p class="text-gray-300 text-sm mt-1">Open Opportunities</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-black font-display" style="color:#E8651A;">1,200+</p>
+                    <p class="text-gray-300 text-sm mt-1">Safari Packages</p>
+                </div>
+                <div>
+                    <p class="text-3xl md:text-4xl font-black font-display" style="color:#E8651A;">$50M+</p>
+                    <p class="text-gray-300 text-sm mt-1">Funding Connected</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= OPPORTUNITIES SECTION ======= -->
+<section id="opportunities" class="py-24" style="background:#2C1810;">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="font-semibold uppercase tracking-widest text-sm" style="color:#E8651A;">For Students, Researchers & Professionals</span>
+            <h2 class="font-display text-5xl font-black text-white mt-3 mb-4">
+                Your Next Big <span style="color:#E8651A;">Opportunity</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Whether you're a student seeking a scholarship or an NGO seeking conservation funding — we have it all in one place.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+            <!-- Scholarships -->
+            <a href="/opportunities/?type=scholarship" class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 cursor-pointer group block" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">🎓</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Scholarships</h3>
+                <p class="text-gray-400 text-sm mb-4">Full and partial scholarships for African students at top universities worldwide.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-blue-400 text-sm font-semibold">120+ Available</span>
+                    <span class="group-hover:translate-x-1 transition-transform inline-block" style="color:#E8651A;">→</span>
+                </div>
+            </a>
+
+            <!-- Grants -->
+            <a href="/opportunities/?type=grant" class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 cursor-pointer group block" data-aos="fade-up" data-aos-delay="80">
+                <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">💰</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Grants</h3>
+                <p class="text-gray-400 text-sm mb-4">Conservation, research and community development grants for NGOs and organizations.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-green-400 text-sm font-semibold">85+ Available</span>
+                    <span class="group-hover:translate-x-1 transition-transform inline-block" style="color:#E8651A;">→</span>
+                </div>
+            </a>
+
+            <!-- Fellowships -->
+            <a href="/opportunities/?type=fellowship" class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 cursor-pointer group block" data-aos="fade-up" data-aos-delay="160">
+                <div class="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">🤝</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Fellowships</h3>
+                <p class="text-gray-400 text-sm mb-4">Paid fellowship programs combining mentorship, experience and funding for professionals.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-purple-400 text-sm font-semibold">60+ Available</span>
+                    <span class="group-hover:translate-x-1 transition-transform inline-block" style="color:#E8651A;">→</span>
+                </div>
+            </a>
+
+            <!-- Internships -->
+            <a href="/opportunities/?type=internship" class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 cursor-pointer group block" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-14 h-14 bg-yellow-500/20 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">💼</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Internships</h3>
+                <p class="text-gray-400 text-sm mb-4">Gain hands-on experience at top conservation organizations and safari companies across Africa.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-yellow-400 text-sm font-semibold">95+ Available</span>
+                    <span class="group-hover:translate-x-1 transition-transform inline-block" style="color:#E8651A;">→</span>
+                </div>
+            </a>
+
+            <!-- Jobs -->
+            <a href="/opportunities/?type=job" class="card-hover bg-white/5 border border-white/10 rounded-2xl p-6 cursor-pointer group block" data-aos="fade-up" data-aos-delay="80">
+                <div class="w-14 h-14 bg-red-500/20 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">👔</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Job Offers</h3>
+                <p class="text-gray-400 text-sm mb-4">Full-time positions at safari lodges, conservation NGOs, tourism companies and more.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-red-400 text-sm font-semibold">150+ Available</span>
+                    <span class="group-hover:translate-x-1 transition-transform inline-block" style="color:#E8651A;">→</span>
+                </div>
+            </a>
+
+            <!-- Newsletter Signup -->
+            <div class="rounded-2xl p-6" style="background:linear-gradient(135deg,#E8651A,#C0392B);" data-aos="fade-up" data-aos-delay="160">
+                <div class="text-4xl mb-4">🔔</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Never Miss An Opportunity</h3>
+                <p class="text-white/80 text-sm mb-4">Get instant alerts for new scholarships, grants and jobs straight to your inbox.</p>
+                <input type="email" placeholder="your@email.com"
+                       class="w-full bg-white/20 border border-white/30 text-white placeholder-white/60 rounded-xl px-4 py-2.5 mb-3 focus:outline-none text-sm">
+                <button class="w-full font-bold py-2.5 rounded-xl text-sm transition-colors"
+                        style="background:#fff; color:#E8651A;">
+                    Get Free Alerts
+                </button>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/opportunities/"
+               class="inline-flex items-center space-x-2 border-2 px-8 py-4 rounded-full font-bold transition-all hover:text-white"
+               style="border-color:#E8651A; color:#E8651A;"
+               onmouseover="this.style.background='#E8651A'"
+               onmouseout="this.style.background='transparent'">
+                <span>Browse All Opportunities</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= EXPLORE AFRICA ======= -->
+<section id="explore" class="py-24" style="background:#1a0f0a;">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="font-semibold uppercase tracking-widest text-sm" style="color:#E8651A;">54 Countries, Infinite Adventures</span>
+            <h2 class="font-display text-5xl font-black text-white mt-3 mb-4">
+                Explore <span style="color:#E8651A;">Africa</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                From the Serengeti plains to Sahara dunes, Victoria Falls to Zanzibar beaches.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-12">
+
+            <!-- Big Card -->
+            <div class="md:col-span-7 relative rounded-3xl overflow-hidden h-96 card-hover cursor-pointer group" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80"
+                     alt="Serengeti" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 60%);"></div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span class="text-white text-xs px-3 py-1 rounded-full font-semibold" style="background:#E8651A;">🦁 Safari & Wildlife</span>
+                    <h3 class="font-display text-3xl font-bold text-white mt-2">Serengeti, Tanzania</h3>
+                    <p class="text-gray-300 text-sm mt-1">Witness the greatest wildlife spectacle on Earth</p>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="font-semibold" style="color:#D4A017;">From $1,200/person</span>
+                        <span class="text-white bg-white/20 px-3 py-1 rounded-full text-sm">Explore →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Cards -->
+            <div class="md:col-span-5 grid grid-cols-1 gap-4">
+                <div class="relative rounded-3xl overflow-hidden h-44 card-hover cursor-pointer group" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=600&q=80"
+                         alt="Zanzibar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(44,24,16,0.85) 0%,transparent 60%);"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">🏖️ Beach</span>
+                        <h3 class="font-display text-xl font-bold text-white mt-1">Zanzibar, Tanzania</h3>
+                        <span class="text-sm font-semibold" style="color:#D4A017;">From $800/person</span>
+                    </div>
+                </div>
+                <div class="relative rounded-3xl overflow-hidden h-44 card-hover cursor-pointer group" data-aos="fade-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80"
+                         alt="Kilimanjaro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(44,24,16,0.85) 0%,transparent 60%);"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">⛰️ Mountain</span>
+                        <h3 class="font-display text-xl font-bold text-white mt-1">Kilimanjaro, Tanzania</h3>
+                        <span class="text-sm font-semibold" style="color:#D4A017;">From $2,500/person</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/destinations/"
+               class="inline-flex items-center space-x-2 border-2 px-8 py-4 rounded-full font-bold transition-all"
+               style="border-color:#E8651A; color:#E8651A;"
+               onmouseover="this.style.background='#E8651A'; this.style.color='#fff';"
+               onmouseout="this.style.background='transparent'; this.style.color='#E8651A';">
+                <span>Explore All Destinations</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= WHY CHOOSE US ======= -->
+<section class="py-24" style="background:#2C1810;">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="font-display text-5xl font-black text-white mb-4">
+                Why <span style="color:#E8651A;">SafariGrants?</span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center p-6" data-aos="fade-up" data-aos-delay="0">
+                <div class="text-5xl mb-4">🌍</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">All of Africa</h3>
+                <p class="text-gray-400 text-sm">Every country, every destination, every opportunity across all 54 African nations.</p>
+            </div>
+            <div class="text-center p-6" data-aos="fade-up" data-aos-delay="80">
+                <div class="text-5xl mb-4">⚡</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">Instant Alerts</h3>
+                <p class="text-gray-400 text-sm">Get notified the moment new scholarships, grants or safari deals are posted.</p>
+            </div>
+            <div class="text-center p-6" data-aos="fade-up" data-aos-delay="160">
+                <div class="text-5xl mb-4">🔒</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">100% Verified</h3>
+                <p class="text-gray-400 text-sm">Every opportunity and tour operator is manually verified by our expert team.</p>
+            </div>
+            <div class="text-center p-6" data-aos="fade-up" data-aos-delay="240">
+                <div class="text-5xl mb-4">💬</div>
+                <h3 class="font-display text-xl font-bold text-white mb-2">24/7 Support</h3>
+                <p class="text-gray-400 text-sm">Our team is always here to help you plan your safari or apply for funding.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
