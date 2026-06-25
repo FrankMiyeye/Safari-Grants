@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+
+{% block title %}Opportunities — Scholarships, Grants, Jobs | SafariGrants{% endblock %}
+
+{% block content %}
+
+<!-- ======= PAGE HERO ======= -->
+<section class="relative pt-32 pb-16 overflow-hidden"
+         style="background:linear-gradient(135deg,#2C1810 0%,#1a0f0a 100%);">
+
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle, #E8651A 1px, transparent 1px);
+                background-size:30px 30px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10" data-aos="fade-up">
+            <span class="font-semibold uppercase tracking-widest text-sm"
+                  style="color:#E8651A;">Your Future Starts Here</span>
+            <h1 class="font-display text-5xl md:text-6xl font-black text-white mt-3 mb-4">
+                Find Your <span style="color:#E8651A;">Opportunity</span>
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Scholarships, grants, fellowships, internships and jobs — all verified, all in one place, all for Africa.
+            </p>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
+            <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.05);">
+                <p class="text-2xl font-black" style="color:#E8651A;">120+</p>
+                <p class="text-gray-400 text-xs mt-1">Scholarships</p>
+            </div>
+            <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.05);">
+                <p class="text-2xl font-black" style="color:#E8651A;">85+</p>
+                <p class="text-gray-400 text-xs mt-1">Grants</p>
+            </div>
+            <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.05);">
+                <p class="text-2xl font-black" style="color:#E8651A;">60+</p>
+                <p class="text-gray-400 text-xs mt-1">Fellowships</p>
+            </div>
+            <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.05);">
+                <p class="text-2xl font-black" style="color:#E8651A;">95+</p>
+                <p class="text-gray-400 text-xs mt-1">Internships</p>
+            </div>
+            <div class="text-center p-4 rounded-2xl" style="background:rgba(255,255,255,0.05);">
+                <p class="text-2xl font-black" style="color:#E8651A;">150+</p>
+                <p class="text-gray-400 text-xs mt-1">Jobs</p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="rounded-2xl p-4" style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1);">
+            <div class="flex flex-col md:flex-row gap-3">
+                <div class="flex-1 relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text"
+                           placeholder="Search scholarships, grants, fellowships..."
+                           class="w-full rounded-xl pl-11 pr-4 py-3.5 text-sm focus:outline-none text-white"
+                           style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                </div>
+                <select class="rounded-xl px-4 py-3.5 text-sm focus:outline-none text-white min-w-40"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                    <option class="text-gray-800">All Types</option>
+                    <option class="text-gray-800">🎓 Scholarships</option>
+                    <option class="text-gray-800">💰 Grants</option>
+                    <option class="text-gray-800">🤝 Fellowships</option>
+                    <option class="text-gray-800">💼 Internships</option>
+                    <option class="text-gray-800">👔 Jobs</option>
+                </select>
+                <select class="rounded-xl px-4 py-3.5 text-sm focus:outline-none text-white min-w-40"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                    <option class="text-gray-800">All Countries</option>
+                    <option class="text-gray-800">Tanzania</option>
+                    <option class="text-gray-800">Kenya</option>
+                    <option class="text-gray-800">Nigeria</option>
+                    <option class="text-gray-800">South Africa</option>
+                    <option class="text-gray-800">Ghana</option>
+                    <option class="text-gray-800">Ethiopia</option>
+                    <option class="text-gray-800">Uganda</option>
+                    <option class="text-gray-800">Rwanda</option>
+                </select>
+                <button class="px-7 py-3.5 rounded-xl font-bold whitespace-nowrap text-white transition-all hover:scale-105"
+                        style="background:#E8651A;">
+                    🔍 Search
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= FILTER TABS + LISTINGS ======= -->
+<section class="py-16" style="background:#1a0f0a;">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-10"
+             x-data="{ active: 'all' }">
+            <button @click="active='all'"
+                    :style="active==='all' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                All Opportunities
+            </button>
+            <button @click="active='scholarship'"
+                    :style="active==='scholarship' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🎓 Scholarships
+            </button>
+            <button @click="active='grant'"
+                    :style="active==='grant' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                💰 Grants
+            </button>
+            <button @click="active='fellowship'"
+                    :style="active==='fellowship' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🤝 Fellowships
+            </button>
+            <button @click="active='internship'"
+                    :style="active==='internship' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                💼 Internships
+            </button>
+            <button @click="active='job'"
+                    :style="active==='job' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                👔 Jobs
+            </button>
+        </div>
+
+        <!-- Opportunity Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+
+            <!-- Card 1 — Scholarship -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(79,195,247,0.15); color:#4FC3F7;">
+                        🎓 Scholarship
+                    </span>
+                    <span class="text-xs font-semibold flex items-center gap-1" style="color:#ef5350;">
+                        <span class="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style="background:#ef5350;"></span>
+                        Closes Dec 31
+                    </span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">Chevening Scholarship 2025</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">UK Government</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 Open to all African countries</p>
+                <p class="text-gray-400 text-sm mb-4">Full masters degree funding for outstanding African leaders at top UK universities.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">Up to £18,000/year</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+            <!-- Card 2 — Grant -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(76,175,80,0.15); color:#81c784;">
+                        💰 Grant
+                    </span>
+                    <span class="text-xs font-semibold" style="color:#81c784;">Open Now</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">WWF Conservation Grant</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">World Wildlife Fund</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 Sub-Saharan Africa</p>
+                <p class="text-gray-400 text-sm mb-4">Funding for African wildlife conservation and community-based environmental projects.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">Up to $50,000</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+            <!-- Card 3 — Fellowship -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(186,104,200,0.15); color:#ce93d8;">
+                        🤝 Fellowship
+                    </span>
+                    <span class="text-xs font-semibold" style="color:#FFD54F;">Closes Jan 15</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">DAAD Africa Fellowship</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">German Academic Exchange</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 All African Countries</p>
+                <p class="text-gray-400 text-sm mb-4">12-month research fellowship at leading German universities for African scholars.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">€1,200/month</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+            <!-- Card 4 — Internship -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(255,213,79,0.15); color:#FFD54F;">
+                        💼 Internship
+                    </span>
+                    <span class="text-xs font-semibold" style="color:#81c784;">Open Now</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">UN Environment Programme</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">United Nations · Nairobi, Kenya</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 East Africa</p>
+                <p class="text-gray-400 text-sm mb-4">6-month paid internship at UN Environment headquarters in Nairobi for graduates.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">$1,500/month</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+            <!-- Card 5 — Job -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(239,83,80,0.15); color:#ef9a9a;">
+                        👔 Job
+                    </span>
+                    <span class="text-xs font-semibold" style="color:#81c784;">Hiring Now</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">Safari Lodge Manager</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">Asilia Africa · Tanzania</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 Tanzania & Kenya</p>
+                <p class="text-gray-400 text-sm mb-4">Lead operations at a luxury safari lodge inside Serengeti National Park.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">$3,000–5,000/month</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+            <!-- Card 6 — Scholarship -->
+            <div class="rounded-2xl p-6 card-hover cursor-pointer"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="flex items-start justify-between mb-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full"
+                          style="background:rgba(79,195,247,0.15); color:#4FC3F7;">
+                        🎓 Scholarship
+                    </span>
+                    <span class="text-xs font-semibold" style="color:#FFD54F;">Closes Feb 28</span>
+                </div>
+                <h3 class="font-display text-lg font-bold text-white mb-1">Mastercard Foundation Scholars</h3>
+                <p class="text-sm mb-1" style="color:#E8651A;">Mastercard Foundation</p>
+                <p class="text-gray-500 text-xs mb-1">🌍 Sub-Saharan Africa</p>
+                <p class="text-gray-400 text-sm mb-4">Full undergraduate and graduate scholarships for academically talented yet economically disadvantaged African students.</p>
+                <div class="flex items-center justify-between pt-3" style="border-top:1px solid rgba(255,255,255,0.08);">
+                    <span class="font-bold text-sm" style="color:#D4A017;">Fully Funded</span>
+                    <a href="#" class="text-xs text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105"
+                       style="background:#1B5E20;">Apply Now →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center">
+            <button class="px-10 py-4 rounded-full font-bold text-white transition-all hover:scale-105 border-2"
+                    style="border-color:#E8651A; color:#E8651A;"
+                    onmouseover="this.style.background='#E8651A'; this.style.color='#fff';"
+                    onmouseout="this.style.background='transparent'; this.style.color='#E8651A';">
+                Load More Opportunities
+                <i class="fas fa-arrow-down ml-2"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
