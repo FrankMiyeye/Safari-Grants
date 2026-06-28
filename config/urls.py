@@ -20,6 +20,9 @@ def register(request):
 def login_page(request):
     return render(request, 'login.html')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
 # ======= URL Patterns =======
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +31,7 @@ urlpatterns = [
     path('destinations/', destinations, name='destinations'),
     path('register/', register, name='register'),
     path('login/', login_page, name='login'),
+    path('dashboard/', dashboard, name='dashboard'),
 ]
 
 if settings.DEBUG:

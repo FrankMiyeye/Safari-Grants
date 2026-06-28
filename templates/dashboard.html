@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard — SafariGrants{% endblock %}
+
+{% block content %}
+
+<section class="min-h-screen py-32 px-4"
+         style="background:linear-gradient(135deg,#1a0f0a 0%,#2C1810 100%);">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Welcome Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10"
+             data-aos="fade-up">
+            <div>
+                <h1 class="font-display text-4xl font-black text-white">
+                    Welcome back, <span style="color:#E8651A;">
+                    {{ user.first_name|default:user.username }}!</span>
+                </h1>
+                <p class="text-gray-400 mt-2">
+                    Here's what's happening with your account today.
+                </p>
+            </div>
+            <a href="/opportunities/"
+               class="mt-4 md:mt-0 text-white px-6 py-3 rounded-xl font-bold text-sm transition-all hover:scale-105"
+               style="background:#E8651A;">
+                🔍 Find Opportunities
+            </a>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="rounded-2xl p-5 text-center"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <p class="text-3xl font-black" style="color:#E8651A;">0</p>
+                <p class="text-gray-400 text-xs mt-1">Applications</p>
+            </div>
+            <div class="rounded-2xl p-5 text-center"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <p class="text-3xl font-black" style="color:#E8651A;">0</p>
+                <p class="text-gray-400 text-xs mt-1">Saved Items</p>
+            </div>
+            <div class="rounded-2xl p-5 text-center"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <p class="text-3xl font-black" style="color:#E8651A;">0</p>
+                <p class="text-gray-400 text-xs mt-1">Bookings</p>
+            </div>
+            <div class="rounded-2xl p-5 text-center"
+                 style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="240">
+                <p class="text-3xl font-black" style="color:#E8651A;">0</p>
+                <p class="text-gray-400 text-xs mt-1">Alerts</p>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Left Column -->
+            <div class="md:col-span-2 space-y-6">
+
+                <!-- Recent Opportunities -->
+                <div class="rounded-2xl p-6"
+                     style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                     data-aos="fade-up">
+                    <div class="flex justify-between items-center mb-5">
+                        <h2 class="font-display text-xl font-bold text-white">
+                            🎓 Latest Opportunities
+                        </h2>
+                        <a href="/opportunities/"
+                           class="text-xs font-semibold transition-colors"
+                           style="color:#E8651A;">View All →</a>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Opportunity Item -->
+                        <div class="flex items-center justify-between p-4 rounded-xl transition-all hover:scale-101"
+                             style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                                     style="background:rgba(79,195,247,0.15);">🎓</div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Chevening Scholarship</p>
+                                    <p class="text-gray-500 text-xs">UK Government · Closes Dec 31</p>
+                                </div>
+                            </div>
+                            <a href="#"
+                               class="text-xs text-white px-3 py-1.5 rounded-lg font-semibold"
+                               style="background:#1B5E20;">Apply</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 rounded-xl transition-all"
+                             style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                                     style="background:rgba(76,175,80,0.15);">💰</div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">WWF Conservation Grant</p>
+                                    <p class="text-gray-500 text-xs">World Wildlife Fund · Open Now</p>
+                                </div>
+                            </div>
+                            <a href="#"
+                               class="text-xs text-white px-3 py-1.5 rounded-lg font-semibold"
+                               style="background:#1B5E20;">Apply</a>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 rounded-xl transition-all"
+                             style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl"
+                                     style="background:rgba(186,104,200,0.15);">🤝</div>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">DAAD Africa Fellowship</p>
+                                    <p class="text-gray-500 text-xs">German Exchange · Closes Jan 15</p>
+                                </div>
+                            </div>
+                            <a href="#"
+                               class="text-xs text-white px-3 py-1.5 rounded-lg font-semibold"
+                               style="background:#1B5E20;">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Destinations -->
+                <div class="rounded-2xl p-6"
+                     style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                     data-aos="fade-up">
+                    <div class="flex justify-between items-center mb-5">
+                        <h2 class="font-display text-xl font-bold text-white">
+                            🌍 Recommended Destinations
+                        </h2>
+                        <a href="/destinations/"
+                           class="text-xs font-semibold transition-colors"
+                           style="color:#E8651A;">View All →</a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="relative rounded-xl overflow-hidden h-28 cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=300&q=80"
+                                 alt="Serengeti"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0"
+                                 style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 60%);"></div>
+                            <div class="absolute bottom-2 left-3">
+                                <p class="text-white text-xs font-bold">Serengeti</p>
+                                <p class="text-gray-300 text-xs">Tanzania 🇹🇿</p>
+                            </div>
+                        </div>
+                        <div class="relative rounded-xl overflow-hidden h-28 cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=300&q=80"
+                                 alt="Zanzibar"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0"
+                                 style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 60%);"></div>
+                            <div class="absolute bottom-2 left-3">
+                                <p class="text-white text-xs font-bold">Zanzibar</p>
+                                <p class="text-gray-300 text-xs">Tanzania 🇹🇿</p>
+                            </div>
+                        </div>
+                        <div class="relative rounded-xl overflow-hidden h-28 cursor-pointer group">
+                            <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=300&q=80"
+                                 alt="Kilimanjaro"
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0"
+                                 style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 60%);"></div>
+                            <div class="absolute bottom-2 left-3">
+                                <p class="text-white text-xs font-bold">Kilimanjaro</p>
+                                <p class="text-gray-300 text-xs">Tanzania 🇹🇿</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+
+                <!-- Profile Card -->
+                <div class="rounded-2xl p-6 text-center"
+                     style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                     data-aos="fade-up">
+                    <!-- Avatar -->
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-black text-white mx-auto mb-4"
+                         style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                        {{ user.first_name|first|upper|default:"U" }}
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-white">
+                        {{ user.get_full_name|default:user.username }}
+                    </h3>
+                    <p class="text-gray-400 text-sm">{{ user.email }}</p>
+                    <div class="mt-3 inline-block px-3 py-1 rounded-full text-xs font-semibold"
+                         style="background:rgba(232,101,26,0.2); color:#E8651A;">
+                        ✅ Verified Member
+                    </div>
+                    <a href="/profile/"
+                       class="mt-4 block w-full py-2.5 rounded-xl text-white text-sm font-bold transition-all"
+                       style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                        Edit Profile
+                    </a>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="rounded-2xl p-6"
+                     style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+                     data-aos="fade-up">
+                    <h3 class="font-bold text-white text-sm mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/opportunities/"
+                               class="flex items-center gap-3 p-3 rounded-xl text-sm text-gray-300 transition-all hover:text-white"
+                               style="background:rgba(255,255,255,0.03);"
+                               onmouseover="this.style.background='rgba(232,101,26,0.15)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                                <span>🎓</span> Browse Scholarships
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/destinations/"
+                               class="flex items-center gap-3 p-3 rounded-xl text-sm text-gray-300 transition-all hover:text-white"
+                               style="background:rgba(255,255,255,0.03);"
+                               onmouseover="this.style.background='rgba(232,101,26,0.15)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                                <span>🌍</span> Explore Destinations
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/opportunities/?type=job"
+                               class="flex items-center gap-3 p-3 rounded-xl text-sm text-gray-300 transition-all hover:text-white"
+                               style="background:rgba(255,255,255,0.03);"
+                               onmouseover="this.style.background='rgba(232,101,26,0.15)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                                <span>👔</span> Find Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/opportunities/?type=grant"
+                               class="flex items-center gap-3 p-3 rounded-xl text-sm text-gray-300 transition-all hover:text-white"
+                               style="background:rgba(255,255,255,0.03);"
+                               onmouseover="this.style.background='rgba(232,101,26,0.15)'"
+                               onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                                <span>💰</span> Browse Grants
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Alert Signup -->
+                <div class="rounded-2xl p-6"
+                     style="background:linear-gradient(135deg,#E8651A,#C0392B);"
+                     data-aos="fade-up">
+                    <div class="text-3xl mb-3">🔔</div>
+                    <h3 class="font-display text-lg font-bold text-white mb-2">
+                        Get Opportunity Alerts
+                    </h3>
+                    <p class="text-white/70 text-xs mb-4">
+                        Never miss a scholarship or grant deadline again.
+                    </p>
+                    <button class="w-full py-2.5 rounded-xl font-bold text-sm transition-all"
+                            style="background:#fff; color:#E8651A;">
+                        Enable Alerts 🔔
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
