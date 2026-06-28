@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
 
-# ======= Temporary Views =======
+# ======= All Views =======
 def home(request):
     return render(request, 'home.html')
 
@@ -14,13 +14,28 @@ def opportunities(request):
 def destinations(request):
     return render(request, 'destinations.html')
 
+def register(request):
+    return render(request, 'register.html')
+
+def login_page(request):
+    return render(request, 'login.html')
+
+# ======= URL Patterns =======
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('opportunities/', opportunities, name='opportunities'),
     path('destinations/', destinations, name='destinations'),
+    path('register/', register, name='register'),
+    path('login/', login_page, name='login'),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
+    urlpatterns += static(
+        settings.STATIC_URL,
+        document_root=settings.STATICFILES_DIRS[0]
+    )

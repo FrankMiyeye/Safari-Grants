@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account — SafariGrants{% endblock %}
+
+{% block content %}
+
+<section class="min-h-screen flex items-center justify-center py-32 px-4"
+         style="background:linear-gradient(135deg,#1a0f0a 0%,#2C1810 100%);">
+
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle, #E8651A 1px, transparent 1px);
+                background-size:30px 30px;"></div>
+
+    <div class="relative z-10 w-full max-w-md">
+
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="/">
+                <img src="/static/images/logo.png"
+                     alt="SafariGrants"
+                     class="h-20 w-auto mx-auto drop-shadow-lg">
+            </a>
+            <h1 class="font-display text-3xl font-black text-white mt-4">
+                Create Your Account
+            </h1>
+            <p class="text-gray-400 text-sm mt-2">
+                Join 10,000+ students and travelers on SafariGrants
+            </p>
+        </div>
+
+        <!-- Register Form -->
+        <div class="rounded-3xl p-8"
+             style="background:rgba(255,255,255,0.05);
+                    border:1px solid rgba(255,255,255,0.1);
+                    backdrop-filter:blur(10px);">
+
+            <!-- Account Type -->
+            <div class="mb-6" x-data="{ type: 'tourist' }">
+                <p class="text-white text-sm font-semibold mb-3">I am a:</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <button @click="type='tourist'"
+                            :style="type==='tourist' ? 'background:#E8651A; border-color:#E8651A;' : 'background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.15);'"
+                            class="py-3 rounded-xl text-white text-sm font-semibold border transition-all">
+                        🌍 Tourist / Traveler
+                    </button>
+                    <button @click="type='student'"
+                            :style="type==='student' ? 'background:#E8651A; border-color:#E8651A;' : 'background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.15);'"
+                            class="py-3 rounded-xl text-white text-sm font-semibold border transition-all">
+                        🎓 Student / Professional
+                    </button>
+                </div>
+            </div>
+
+            <form method="POST" action="/register/" class="space-y-4">
+                {% csrf_token %}
+
+                <!-- Name Row -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                            First Name
+                        </label>
+                        <input type="text"
+                               name="first_name"
+                               placeholder="Frank"
+                               required
+                               class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                               style="background:rgba(255,255,255,0.08);
+                                      border:1px solid rgba(255,255,255,0.15);"
+                               onfocus="this.style.borderColor='#E8651A'"
+                               onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                    </div>
+                    <div>
+                        <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                            Last Name
+                        </label>
+                        <input type="text"
+                               name="last_name"
+                               placeholder="Miyeye"
+                               required
+                               class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                               style="background:rgba(255,255,255,0.08);
+                                      border:1px solid rgba(255,255,255,0.15);"
+                               onfocus="this.style.borderColor='#E8651A'"
+                               onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                        Email Address
+                    </label>
+                    <input type="email"
+                           name="email"
+                           placeholder="your@email.com"
+                           required
+                           class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                           style="background:rgba(255,255,255,0.08);
+                                  border:1px solid rgba(255,255,255,0.15);"
+                           onfocus="this.style.borderColor='#E8651A'"
+                           onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                </div>
+
+                <!-- Country -->
+                <div>
+                    <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                        Country
+                    </label>
+                    <select name="country"
+                            class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                            style="background:rgba(255,255,255,0.08);
+                                   border:1px solid rgba(255,255,255,0.15);">
+                        <option class="text-gray-800" value="">Select your country</option>
+                        <option class="text-gray-800" value="TZ">🇹🇿 Tanzania</option>
+                        <option class="text-gray-800" value="KE">🇰🇪 Kenya</option>
+                        <option class="text-gray-800" value="NG">🇳🇬 Nigeria</option>
+                        <option class="text-gray-800" value="ZA">🇿🇦 South Africa</option>
+                        <option class="text-gray-800" value="GH">🇬🇭 Ghana</option>
+                        <option class="text-gray-800" value="ET">🇪🇹 Ethiopia</option>
+                        <option class="text-gray-800" value="UG">🇺🇬 Uganda</option>
+                        <option class="text-gray-800" value="RW">🇷🇼 Rwanda</option>
+                        <option class="text-gray-800" value="OTHER">🌍 Other</option>
+                    </select>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                        Password
+                    </label>
+                    <input type="password"
+                           name="password1"
+                           placeholder="Min 8 characters"
+                           required
+                           class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                           style="background:rgba(255,255,255,0.08);
+                                  border:1px solid rgba(255,255,255,0.15);"
+                           onfocus="this.style.borderColor='#E8651A'"
+                           onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1 block">
+                        Confirm Password
+                    </label>
+                    <input type="password"
+                           name="password2"
+                           placeholder="Repeat your password"
+                           required
+                           class="w-full rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-all"
+                           style="background:rgba(255,255,255,0.08);
+                                  border:1px solid rgba(255,255,255,0.15);"
+                           onfocus="this.style.borderColor='#E8651A'"
+                           onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+                </div>
+
+                <!-- Terms -->
+                <div class="flex items-start gap-3">
+                    <input type="checkbox"
+                           name="terms"
+                           required
+                           class="mt-1 rounded"
+                           style="accent-color:#E8651A;">
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        I agree to the
+                        <a href="/terms/" class="hover:text-sunset transition-colors" style="color:#E8651A;">Terms of Service</a>
+                        and
+                        <a href="/privacy/" class="hover:text-sunset transition-colors" style="color:#E8651A;">Privacy Policy</a>
+                    </p>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                        class="w-full py-4 rounded-xl font-bold text-white text-sm transition-all transform hover:scale-105 shadow-lg mt-2"
+                        style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                    🚀 Create My Account
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="flex items-center gap-3 my-5">
+                <div class="flex-1 h-px" style="background:rgba(255,255,255,0.1);"></div>
+                <span class="text-gray-500 text-xs">or</span>
+                <div class="flex-1 h-px" style="background:rgba(255,255,255,0.1);"></div>
+            </div>
+
+            <!-- Login Link -->
+            <p class="text-center text-gray-400 text-sm">
+                Already have an account?
+                <a href="/login/"
+                   class="font-bold transition-colors"
+                   style="color:#E8651A;">
+                    Login here →
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
