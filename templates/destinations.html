@@ -1,0 +1,377 @@
+{% extends 'base.html' %}
+
+{% block title %}Explore Africa — Destinations | SafariGrants{% endblock %}
+
+{% block content %}
+
+<!-- ======= PAGE HERO ======= -->
+<section class="relative pt-32 pb-16 overflow-hidden"
+         style="background:linear-gradient(135deg,#1a0f0a 0%,#2C1810 100%);">
+
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle, #E8651A 1px, transparent 1px);
+                background-size:30px 30px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-10" data-aos="fade-up">
+            <span class="font-semibold uppercase tracking-widest text-sm"
+                  style="color:#E8651A;">54 Countries · Infinite Adventures</span>
+            <h1 class="font-display text-5xl md:text-6xl font-black text-white mt-3 mb-4">
+                Explore <span style="color:#E8651A;">Africa</span>
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                From Serengeti plains to Sahara dunes, Kilimanjaro peaks to Zanzibar beaches — let Africa take your breath away.
+            </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="rounded-2xl p-4 max-w-3xl mx-auto"
+             style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1);">
+            <div class="flex flex-col md:flex-row gap-3">
+                <div class="flex-1 relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text"
+                           placeholder="Search destinations..."
+                           class="w-full rounded-xl pl-11 pr-4 py-3.5 text-sm focus:outline-none text-white"
+                           style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                </div>
+                <select class="rounded-xl px-4 py-3.5 text-sm focus:outline-none text-white min-w-44"
+                        style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);">
+                    <option class="text-gray-800">All Experiences</option>
+                    <option class="text-gray-800">🦁 Safari & Wildlife</option>
+                    <option class="text-gray-800">🏖️ Beach & Coastal</option>
+                    <option class="text-gray-800">⛰️ Mountain & Hiking</option>
+                    <option class="text-gray-800">🏛️ Cultural & Historical</option>
+                    <option class="text-gray-800">🌊 Adventure Sports</option>
+                    <option class="text-gray-800">🌳 National Parks</option>
+                </select>
+                <button class="px-7 py-3.5 rounded-xl font-bold whitespace-nowrap text-white transition-all hover:scale-105"
+                        style="background:#E8651A;">
+                    🔍 Search
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= CATEGORY FILTERS ======= -->
+<section style="background:#1a0f0a;" class="py-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-wrap gap-3 justify-center"
+             x-data="{ active: 'all' }">
+            <button @click="active='all'"
+                    :style="active==='all' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🌍 All Destinations
+            </button>
+            <button @click="active='safari'"
+                    :style="active==='safari' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🦁 Safari & Wildlife
+            </button>
+            <button @click="active='beach'"
+                    :style="active==='beach' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🏖️ Beach & Coastal
+            </button>
+            <button @click="active='mountain'"
+                    :style="active==='mountain' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                ⛰️ Mountain & Hiking
+            </button>
+            <button @click="active='cultural'"
+                    :style="active==='cultural' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🏛️ Cultural & Historical
+            </button>
+            <button @click="active='adventure'"
+                    :style="active==='adventure' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🌊 Adventure
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= FEATURED DESTINATIONS ======= -->
+<section style="background:#1a0f0a;" class="pb-8">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <h2 class="font-display text-3xl font-black text-white mb-6"
+            data-aos="fade-up">
+            ⭐ Featured Destinations
+        </h2>
+
+        <!-- Big Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4">
+
+            <!-- Hero Card — Serengeti -->
+            <div class="md:col-span-7 relative rounded-3xl overflow-hidden h-96 cursor-pointer group"
+                 data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=900&q=80"
+                     alt="Serengeti"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.95) 0%,transparent 55%);"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="text-white text-xs px-3 py-1.5 rounded-full font-bold"
+                          style="background:#E8651A;">🦁 Safari & Wildlife</span>
+                </div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-white/60 text-xs">🇹🇿 Tanzania</span>
+                        <span class="text-white/40 text-xs">•</span>
+                        <span class="text-yellow-400 text-xs">★★★★★</span>
+                    </div>
+                    <h3 class="font-display text-3xl font-black text-white">Serengeti National Park</h3>
+                    <p class="text-gray-300 text-sm mt-1 mb-3">Witness the greatest wildlife spectacle on Earth — 1.5 million wildebeest await.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="font-bold text-lg" style="color:#D4A017;">From $1,200/person</span>
+                        <a href="#" class="text-sm font-bold px-5 py-2.5 rounded-full transition-all hover:scale-105"
+                           style="background:#E8651A; color:#fff;">Book Now →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="md:col-span-5 grid grid-rows-2 gap-4">
+
+                <!-- Zanzibar -->
+                <div class="relative rounded-3xl overflow-hidden h-44 cursor-pointer group"
+                     data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=600&q=80"
+                         alt="Zanzibar"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#0288D1;">🏖️ Beach</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-white/60 text-xs">🇹🇿 Tanzania</p>
+                        <h3 class="font-display text-xl font-black text-white">Zanzibar Island</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="font-bold text-sm" style="color:#D4A017;">From $800/person</span>
+                            <span class="text-white/70 text-xs group-hover:text-sunset transition-colors">Explore →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kilimanjaro -->
+                <div class="relative rounded-3xl overflow-hidden h-44 cursor-pointer group"
+                     data-aos="fade-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80"
+                         alt="Kilimanjaro"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#1B5E20;">⛰️ Mountain</span>
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-white/60 text-xs">🇹🇿 Tanzania</p>
+                        <h3 class="font-display text-xl font-black text-white">Mount Kilimanjaro</h3>
+                        <div class="flex justify-between items-center mt-1">
+                            <span class="font-bold text-sm" style="color:#D4A017;">From $2,500/person</span>
+                            <span class="text-white/70 text-xs group-hover:text-sunset transition-colors">Explore →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+
+            <!-- Masai Mara -->
+            <div class="relative rounded-2xl overflow-hidden h-56 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="0">
+                <img src="https://images.unsplash.com/photo-1520769945061-0a448c463865?w=600&q=80"
+                     alt="Masai Mara"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute top-3 left-3">
+                    <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                          style="background:#E8651A;">🦁 Safari</span>
+                </div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-white/60 text-xs">🇰🇪 Kenya</p>
+                    <h3 class="font-display text-xl font-black text-white">Masai Mara</h3>
+                    <div class="flex justify-between items-center mt-1">
+                        <span class="font-bold text-sm" style="color:#D4A017;">From $1,800/person</span>
+                        <span class="text-white/70 text-xs">Explore →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Victoria Falls -->
+            <div class="relative rounded-2xl overflow-hidden h-56 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="80">
+                <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80"
+                     alt="Victoria Falls"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute top-3 left-3">
+                    <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                          style="background:#0288D1;">🌊 Adventure</span>
+                </div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-white/60 text-xs">🇿🇼 Zimbabwe</p>
+                    <h3 class="font-display text-xl font-black text-white">Victoria Falls</h3>
+                    <div class="flex justify-between items-center mt-1">
+                        <span class="font-bold text-sm" style="color:#D4A017;">From $950/person</span>
+                        <span class="text-white/70 text-xs">Explore →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marrakech -->
+            <div class="relative rounded-2xl overflow-hidden h-56 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="160">
+                <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?w=600&q=80"
+                     alt="Marrakech"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute top-3 left-3">
+                    <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                          style="background:#6D4C41;">🏛️ Cultural</span>
+                </div>
+                <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-white/60 text-xs">🇲🇦 Morocco</p>
+                    <h3 class="font-display text-xl font-black text-white">Marrakech</h3>
+                    <div class="flex justify-between items-center mt-1">
+                        <span class="font-bold text-sm" style="color:#D4A017;">From $700/person</span>
+                        <span class="text-white/70 text-xs">Explore →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+            <!-- Okavango -->
+            <div class="relative rounded-2xl overflow-hidden h-48 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="0">
+                <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&q=80"
+                     alt="Okavango"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <p class="text-white/60 text-xs">🇧🇼 Botswana</p>
+                    <h3 class="font-display text-lg font-black text-white">Okavango Delta</h3>
+                    <span class="font-bold text-xs" style="color:#D4A017;">From $2,000/person</span>
+                </div>
+            </div>
+
+            <!-- Cape Town -->
+            <div class="relative rounded-2xl overflow-hidden h-48 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="80">
+                <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=400&q=80"
+                     alt="Cape Town"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <p class="text-white/60 text-xs">🇿🇦 South Africa</p>
+                    <h3 class="font-display text-lg font-black text-white">Cape Town</h3>
+                    <span class="font-bold text-xs" style="color:#D4A017;">From $1,100/person</span>
+                </div>
+            </div>
+
+            <!-- Sahara -->
+            <div class="relative rounded-2xl overflow-hidden h-48 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="160">
+                <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400&q=80"
+                     alt="Sahara"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <p class="text-white/60 text-xs">🇲🇦 Morocco</p>
+                    <h3 class="font-display text-lg font-black text-white">Sahara Desert</h3>
+                    <span class="font-bold text-xs" style="color:#D4A017;">From $600/person</span>
+                </div>
+            </div>
+
+            <!-- Gorilla Trekking -->
+            <div class="relative rounded-2xl overflow-hidden h-48 cursor-pointer group"
+                 data-aos="fade-up" data-aos-delay="240">
+                <img src="https://images.unsplash.com/photo-1581852017103-68ac65514cf7?w=400&q=80"
+                     alt="Gorilla Trekking"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.9) 0%,transparent 55%);"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <p class="text-white/60 text-xs">🇷🇼 Rwanda</p>
+                    <h3 class="font-display text-lg font-black text-white">Gorilla Trekking</h3>
+                    <span class="font-bold text-xs" style="color:#D4A017;">From $1,500/person</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ======= ALL 54 COUNTRIES ======= -->
+<section class="py-16" style="background:#2C1810;">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-10" data-aos="fade-up">
+            <h2 class="font-display text-4xl font-black text-white mb-3">
+                All <span style="color:#E8651A;">54 African</span> Countries
+            </h2>
+            <p class="text-gray-400">Click any country to explore destinations and opportunities</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {% for country in countries %}
+            <a href="#"
+               class="rounded-xl p-3 text-center transition-all hover:scale-105 cursor-pointer"
+               style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);"
+               onmouseover="this.style.borderColor='#E8651A';"
+               onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';">
+                <p class="text-2xl mb-1">{{ country.flag }}</p>
+                <p class="text-white text-xs font-semibold">{{ country.name }}</p>
+            </a>
+            {% empty %}
+            <!-- Static countries until database is connected -->
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇹🇿</p><p class="text-white text-xs font-semibold">Tanzania</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇰🇪</p><p class="text-white text-xs font-semibold">Kenya</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇿🇦</p><p class="text-white text-xs font-semibold">South Africa</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇳🇬</p><p class="text-white text-xs font-semibold">Nigeria</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇬🇭</p><p class="text-white text-xs font-semibold">Ghana</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇪🇹</p><p class="text-white text-xs font-semibold">Ethiopia</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇺🇬</p><p class="text-white text-xs font-semibold">Uganda</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇷🇼</p><p class="text-white text-xs font-semibold">Rwanda</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇧🇼</p><p class="text-white text-xs font-semibold">Botswana</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇲🇦</p><p class="text-white text-xs font-semibold">Morocco</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇿🇼</p><p class="text-white text-xs font-semibold">Zimbabwe</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇸🇳</p><p class="text-white text-xs font-semibold">Senegal</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇨🇮</p><p class="text-white text-xs font-semibold">Ivory Coast</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇨🇲</p><p class="text-white text-xs font-semibold">Cameroon</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇲🇿</p><p class="text-white text-xs font-semibold">Mozambique</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇿🇲</p><p class="text-white text-xs font-semibold">Zambia</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇲🇬</p><p class="text-white text-xs font-semibold">Madagascar</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇨🇩</p><p class="text-white text-xs font-semibold">DR Congo</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇹🇳</p><p class="text-white text-xs font-semibold">Tunisia</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇩🇿</p><p class="text-white text-xs font-semibold">Algeria</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇪🇬</p><p class="text-white text-xs font-semibold">Egypt</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇳🇦</p><p class="text-white text-xs font-semibold">Namibia</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇹🇬</p><p class="text-white text-xs font-semibold">Togo</p></a>
+            <a href="#" class="rounded-xl p-3 text-center transition-all hover:scale-105" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.borderColor='#E8651A';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';"><p class="text-2xl mb-1">🇲🇼</p><p class="text-white text-xs font-semibold">Malawi</p></a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

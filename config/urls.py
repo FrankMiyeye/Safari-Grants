@@ -11,10 +11,14 @@ def home(request):
 def opportunities(request):
     return render(request, 'opportunities.html')
 
+def destinations(request):
+    return render(request, 'destinations.html')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('opportunities/', opportunities, name='opportunities'),
+    path('destinations/', destinations, name='destinations'),
 ]
 
 if settings.DEBUG:
