@@ -107,3 +107,5 @@ AUTHENTICATION_BACKENDS = [
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
+# Custom user model
+AUTH_USER_MODEL = 'accounts.CustomUser'
