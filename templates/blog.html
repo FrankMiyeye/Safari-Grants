@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+
+{% block title %}Travel Blog — SafariGrants{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="relative pt-32 pb-16"
+         style="background:linear-gradient(135deg,#1a0f0a 0%,#2C1810 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle, #E8651A 1px, transparent 1px);
+                background-size:30px 30px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center"
+         data-aos="fade-up">
+        <span class="font-semibold uppercase tracking-widest text-sm"
+              style="color:#E8651A;">Stories · Tips · Inspiration</span>
+        <h1 class="font-display text-5xl font-black text-white mt-3 mb-4">
+            Safari<span style="color:#E8651A;">Grants</span> Blog
+        </h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Travel stories, scholarship tips, grant guides and African adventure inspiration — all in one place.
+        </p>
+    </div>
+</section>
+
+<!-- Blog Categories -->
+<section style="background:#1a0f0a;" class="py-8">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-wrap gap-3 justify-center"
+             x-data="{ active: 'all' }">
+            <button @click="active='all'"
+                    :style="active==='all' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                All Posts
+            </button>
+            <button @click="active='safari'"
+                    :style="active==='safari' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🦁 Safari Tips
+            </button>
+            <button @click="active='scholarship'"
+                    :style="active==='scholarship' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                🎓 Scholarships
+            </button>
+            <button @click="active='grants'"
+                    :style="active==='grants' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                💰 Grants
+            </button>
+            <button @click="active='travel'"
+                    :style="active==='travel' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                ✈️ Travel Guide
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts -->
+<section style="background:#1a0f0a;" class="pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Featured Post -->
+        <div class="mb-10" data-aos="fade-up">
+            <div class="relative rounded-3xl overflow-hidden h-80 cursor-pointer group">
+                <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=80"
+                     alt="Featured Post"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0"
+                     style="background:linear-gradient(to top,rgba(44,24,16,0.95) 0%,transparent 50%);"></div>
+                <div class="absolute top-4 left-4">
+                    <span class="text-white text-xs px-3 py-1.5 rounded-full font-bold"
+                          style="background:#E8651A;">⭐ Featured</span>
+                </div>
+                <div class="absolute bottom-6 left-6 right-6 md:right-1/3">
+                    <span class="text-xs font-semibold" style="color:#E8651A;">🦁 Safari Tips</span>
+                    <h2 class="font-display text-3xl font-black text-white mt-2 mb-2">
+                        The Ultimate Guide to Serengeti Safari — Everything You Need to Know
+                    </h2>
+                    <div class="flex items-center gap-4 text-gray-400 text-xs">
+                        <span>📅 June 25, 2025</span>
+                        <span>⏱️ 8 min read</span>
+                        <span>👁️ 2,340 views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Post 1 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+                         alt="Scholarship Guide"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#1B5E20;">🎓 Scholarships</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        How to Win the Chevening Scholarship — Step by Step Guide
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        Everything you need to know about applying for the UK's most prestigious scholarship for African students.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 20, 2025</span>
+                            <span>·</span>
+                            <span>6 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=600&q=80"
+                         alt="Zanzibar Guide"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#0288D1;">✈️ Travel Guide</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        Zanzibar on a Budget — Complete Travel Guide 2025
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        Discover how to experience the magic of Zanzibar without breaking the bank. Tips, tricks and hidden gems.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 18, 2025</span>
+                            <span>·</span>
+                            <span>5 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80"
+                         alt="Conservation Grants"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#5C2D00;">💰 Grants</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        Top 10 Wildlife Conservation Grants in Africa 2025
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        The best grants available for wildlife conservation projects across Africa — deadlines, amounts and how to apply.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 15, 2025</span>
+                            <span>·</span>
+                            <span>7 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 4 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80"
+                         alt="Kilimanjaro"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#E8651A;">🦁 Safari Tips</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        Climbing Kilimanjaro — What Nobody Tells You
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        Real tips from climbers who made it to the top of Africa's highest peak. What to expect and how to prepare.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 10, 2025</span>
+                            <span>·</span>
+                            <span>9 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 5 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1520769945061-0a448c463865?w=600&q=80"
+                         alt="Masai Mara"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#E8651A;">🦁 Safari Tips</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        Masai Mara vs Serengeti — Which Safari is Better?
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        The ultimate comparison between Kenya's Masai Mara and Tanzania's Serengeti to help you choose the perfect safari.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 8, 2025</span>
+                            <span>·</span>
+                            <span>6 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 6 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?w=600&q=80"
+                         alt="Morocco"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#6D4C41;">✈️ Travel Guide</span>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-2 group-hover:text-sunset transition-colors">
+                        Morocco Travel Guide — Hidden Gems Beyond Marrakech
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2">
+                        Discover the secret beauty of Morocco beyond the famous medinas — from Sahara dunes to Atlantic coastlines.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs">
+                            <span>📅 June 5, 2025</span>
+                            <span>·</span>
+                            <span>5 min read</span>
+                        </div>
+                        <span style="color:#E8651A;" class="text-xs font-bold">Read →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center mt-12">
+            <button class="px-10 py-4 rounded-full font-bold text-sm transition-all border-2"
+                    style="border-color:#E8651A; color:#E8651A;"
+                    onmouseover="this.style.background='#E8651A'; this.style.color='#fff';"
+                    onmouseout="this.style.background='transparent'; this.style.color='#E8651A';">
+                Load More Posts
+                <i class="fas fa-arrow-down ml-2"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

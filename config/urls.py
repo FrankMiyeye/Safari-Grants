@@ -3,8 +3,6 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
-
-# Import accounts views
 from accounts.views import (
     register_view,
     login_view,
@@ -22,19 +20,31 @@ def opportunities(request):
 def destinations(request):
     return render(request, 'destinations.html')
 
+def profile(request):
+    return render(request, 'profile.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def blog(request):
+    return render(request, 'blog.html')
+
 # ======= URL Patterns =======
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Main pages
-    path('', home, name='home'),
+    path('',               home,          name='home'),
     path('opportunities/', opportunities, name='opportunities'),
-    path('destinations/', destinations, name='destinations'),
+    path('destinations/',  destinations,  name='destinations'),
+    path('profile/',       profile,       name='profile'),
+    path('contact/',       contact,       name='contact'),
+    path('blog/',          blog,          name='blog'),
 
     # Auth pages
-    path('register/', register_view, name='register'),
-    path('login/',    login_view,    name='login'),
-    path('logout/',   logout_view,   name='logout'),
+    path('register/',  register_view,  name='register'),
+    path('login/',     login_view,     name='login'),
+    path('logout/',    logout_view,    name='logout'),
     path('dashboard/', dashboard_view, name='dashboard'),
 ]
 
