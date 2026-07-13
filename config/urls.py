@@ -3,12 +3,29 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
+from django.contrib.sitemaps.views import sitemap
+from config.sitemaps import StaticViewSitemap
+from django.contrib.sitemaps.views import sitemap
+from config.sitemaps import StaticViewSitemap
+
+sitemaps = {
+    'static': StaticViewSitemap,
+}
+
+
 from accounts.views import (
     register_view,
     login_view,
     logout_view,
     dashboard_view,
 )
+from django.views.generic import TemplateView
+
+# Add to urlpatterns:
+path('robots.txt', TemplateView.as_view(
+    template_name='robots.txt',
+    content_type='text/plain'
+), name='robots'),
 
 # ======= Simple Page Views =======
 def home(request):
@@ -29,6 +46,9 @@ def contact(request):
 def blog(request):
     return render(request, 'blog.html')
 
+def packages(request):
+    return render(request, 'packages.html')
+
 # ======= URL Patterns =======
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +60,8 @@ urlpatterns = [
     path('profile/',       profile,       name='profile'),
     path('contact/',       contact,       name='contact'),
     path('blog/',          blog,          name='blog'),
+    path('packages/', packages, name='packages'),
+    path('sitemap.xml', sitemap, {'sitemaps': {'static': StaticViewSitemap}}, name='sitemap'),
 
     # Auth pages
     path('register/',  register_view,  name='register'),

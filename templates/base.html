@@ -44,6 +44,28 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- Primary SEO -->
+    <title>SafariGrants — Scholarships, Grants & Safari Packages Africa</title>
+    <meta name="description" content="Discover scholarships, grants, fellowships, internships, jobs and unforgettable African safari adventures — all in one place.">
+    <meta name="keywords" content="scholarships Africa, grants Tanzania, safari packages, African fellowships, internships Africa">
+    <meta name="author" content="SafariGrants">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{% block canonical %}https://safarigrants.com{% endblock %}">
+
+    <!-- Open Graph — for Facebook & WhatsApp sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}SafariGrants — Empowering Dreams{% endblock %}">
+    <meta property="og:description" content="{% block og_desc %}Discover scholarships, grants and African safari adventures{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}/static/images/logo.png{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://safarigrants.com{% endblock %}">
+    <meta property="og:site_name" content="SafariGrants">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}SafariGrants{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_desc %}Scholarships, grants and safari packages across Africa{% endblock %}">
+    <meta name="twitter:image" content="/static/images/logo.png">
+
     <style>
         html { scroll-behavior: smooth; }
         .navbar-glass {
@@ -122,7 +144,7 @@
                    class="text-white/80 hover:text-sunset transition-colors text-sm font-medium">
                    Login
                 </a>
-                <a href="/accounts/signup/"
+                <a href="/register/"
                    class="text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all transform hover:scale-105 shadow-lg"
                    style="background:#E8651A;">
                     Get Started Free
@@ -152,7 +174,7 @@
                class="block text-white px-5 py-3 rounded-full font-bold text-center"
                style="background:#E8651A;">Logout</a>
         {% else %}
-            <a href="/accounts/signup/"
+            <a href="/register/"
                class="block text-white px-5 py-3 rounded-full font-bold text-center"
                style="background:#E8651A;">Get Started Free</a>
         {% endif %}

@@ -1,0 +1,516 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}Safari Packages Africa — Book Online | SafariGrants{% endblock %}
+
+{% block meta_desc %}Book 1,200+ verified safari packages across Africa. Wildlife safaris, beach holidays, mountain treks and luxury retreats from $500.{% endblock %}
+
+{% block meta_keywords %}safari packages Africa, Tanzania safari price, Serengeti tour, affordable safari, luxury safari Africa{% endblock %}
+
+<!-- Hero -->
+<section class="relative pt-32 pb-16"
+         style="background:linear-gradient(135deg,#1a0f0a 0%,#2C1810 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image:radial-gradient(circle, #E8651A 1px, transparent 1px);
+                background-size:30px 30px;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center"
+         data-aos="fade-up">
+        <span class="font-semibold uppercase tracking-widest text-sm"
+              style="color:#E8651A;">Curated African Experiences</span>
+        <h1 class="font-display text-5xl font-black text-white mt-3 mb-4">
+            Safari <span style="color:#E8651A;">Packages</span>
+        </h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Handpicked safari packages across Africa — from budget adventures to luxury retreats. Every experience verified and trusted.
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap justify-center gap-8 mt-10">
+            <div class="text-center">
+                <p class="text-3xl font-black" style="color:#E8651A;">1,200+</p>
+                <p class="text-gray-400 text-sm">Safari Packages</p>
+            </div>
+            <div class="text-center">
+                <p class="text-3xl font-black" style="color:#E8651A;">54</p>
+                <p class="text-gray-400 text-sm">African Countries</p>
+            </div>
+            <div class="text-center">
+                <p class="text-3xl font-black" style="color:#E8651A;">500+</p>
+                <p class="text-gray-400 text-sm">Tour Operators</p>
+            </div>
+            <div class="text-center">
+                <p class="text-3xl font-black" style="color:#E8651A;">4.9★</p>
+                <p class="text-gray-400 text-sm">Average Rating</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filters -->
+<section style="background:#1a0f0a;" class="py-8 sticky top-16 z-40"
+         style="background:#1a0f0a; border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-4">
+
+            <!-- Search -->
+            <div class="flex-1 relative">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input type="text"
+                       placeholder="Search safari packages..."
+                       class="w-full rounded-xl pl-11 pr-4 py-3 text-sm text-white focus:outline-none"
+                       style="background:rgba(255,255,255,0.07);
+                              border:1px solid rgba(255,255,255,0.1);">
+            </div>
+
+            <!-- Category -->
+            <select class="rounded-xl px-4 py-3 text-sm text-white focus:outline-none min-w-44"
+                    style="background:rgba(255,255,255,0.07);
+                           border:1px solid rgba(255,255,255,0.1);">
+                <option class="text-gray-800">All Categories</option>
+                <option class="text-gray-800">🦁 Wildlife Safari</option>
+                <option class="text-gray-800">🏖️ Beach & Coastal</option>
+                <option class="text-gray-800">⛰️ Mountain Trekking</option>
+                <option class="text-gray-800">🏛️ Cultural Tours</option>
+                <option class="text-gray-800">🌊 Adventure Sports</option>
+                <option class="text-gray-800">💎 Luxury Retreat</option>
+            </select>
+
+            <!-- Duration -->
+            <select class="rounded-xl px-4 py-3 text-sm text-white focus:outline-none min-w-40"
+                    style="background:rgba(255,255,255,0.07);
+                           border:1px solid rgba(255,255,255,0.1);">
+                <option class="text-gray-800">Any Duration</option>
+                <option class="text-gray-800">1-3 Days</option>
+                <option class="text-gray-800">4-7 Days</option>
+                <option class="text-gray-800">8-14 Days</option>
+                <option class="text-gray-800">15+ Days</option>
+            </select>
+
+            <!-- Budget -->
+            <select class="rounded-xl px-4 py-3 text-sm text-white focus:outline-none min-w-40"
+                    style="background:rgba(255,255,255,0.07);
+                           border:1px solid rgba(255,255,255,0.1);">
+                <option class="text-gray-800">Any Budget</option>
+                <option class="text-gray-800">Under $500</option>
+                <option class="text-gray-800">$500 - $1,000</option>
+                <option class="text-gray-800">$1,000 - $2,500</option>
+                <option class="text-gray-800">$2,500+</option>
+            </select>
+
+            <button class="px-6 py-3 rounded-xl font-bold text-white whitespace-nowrap"
+                    style="background:#E8651A;">
+                🔍 Search
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Packages Grid -->
+<section style="background:#1a0f0a;" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8"
+             x-data="{ active: 'all' }">
+            <button @click="active='all'"
+                    :style="active==='all' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                All
+            </button>
+            <button @click="active='wildlife'"
+                    :style="active==='wildlife' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                🦁 Wildlife
+            </button>
+            <button @click="active='beach'"
+                    :style="active==='beach' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                🏖️ Beach
+            </button>
+            <button @click="active='mountain'"
+                    :style="active==='mountain' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                ⛰️ Mountain
+            </button>
+            <button @click="active='luxury'"
+                    :style="active==='luxury' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                💎 Luxury
+            </button>
+            <button @click="active='budget'"
+                    :style="active==='budget' ? 'background:#E8651A; color:#fff;' : 'background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.6);'"
+                    class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+                💰 Budget
+            </button>
+        </div>
+
+        <!-- Packages -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Package 1 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80"
+                         alt="Serengeti Safari"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.7) 0%,transparent 60%);"></div>
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#E8651A;">🦁 Wildlife</span>
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:rgba(0,0,0,0.5);">⭐ Popular</span>
+                    </div>
+                    <div class="absolute top-3 right-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:rgba(232,101,26,0.9);">-15% OFF</span>
+                    </div>
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                        <div>
+                            <p class="text-white/70 text-xs">🇹🇿 Tanzania</p>
+                            <p class="text-white font-bold">Serengeti National Park</p>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400 text-xs">★★★★★</span>
+                            <span class="text-white/60 text-xs">(124)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-1">
+                        7-Day Serengeti Wildlife Safari
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-3">
+                        Witness the Great Migration, Big Five game drives, and stunning sunset views over the savanna.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🗓️ 7 Days
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            👥 Max 12
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🍽️ All Meals
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🚗 Transport
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between pt-3"
+                         style="border-top:1px solid rgba(255,255,255,0.08);">
+                        <div>
+                            <p class="text-gray-500 text-xs line-through">$1,412</p>
+                            <p class="font-black text-lg" style="color:#E8651A;">$1,200<span class="text-xs font-normal text-gray-400">/person</span></p>
+                        </div>
+                        <a href="#"
+                           class="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                           style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1489392191049-fc10c97e64b6?w=600&q=80"
+                         alt="Zanzibar"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.7) 0%,transparent 60%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#0288D1;">🏖️ Beach</span>
+                    </div>
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                        <div>
+                            <p class="text-white/70 text-xs">🇹🇿 Tanzania</p>
+                            <p class="text-white font-bold">Zanzibar Island</p>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400 text-xs">★★★★★</span>
+                            <span class="text-white/60 text-xs">(89)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-1">
+                        5-Day Zanzibar Beach Paradise
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-3">
+                        Crystal clear waters, white sandy beaches, spice tours and Stone Town exploration.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🗓️ 5 Days
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            👥 Max 8
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🏨 Hotel
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🤿 Snorkeling
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between pt-3"
+                         style="border-top:1px solid rgba(255,255,255,0.08);">
+                        <div>
+                            <p class="font-black text-lg" style="color:#E8651A;">$800<span class="text-xs font-normal text-gray-400">/person</span></p>
+                        </div>
+                        <a href="#"
+                           class="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                           style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80"
+                         alt="Kilimanjaro"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.7) 0%,transparent 60%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#1B5E20;">⛰️ Mountain</span>
+                    </div>
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                        <div>
+                            <p class="text-white/70 text-xs">🇹🇿 Tanzania</p>
+                            <p class="text-white font-bold">Mount Kilimanjaro</p>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400 text-xs">★★★★★</span>
+                            <span class="text-white/60 text-xs">(67)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-1">
+                        8-Day Kilimanjaro Summit Trek
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-3">
+                        Conquer Africa's highest peak via the Machame Route with experienced certified guides.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🗓️ 8 Days
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            👥 Max 10
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            ⛺ Camping
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🧗 Guide
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between pt-3"
+                         style="border-top:1px solid rgba(255,255,255,0.08);">
+                        <div>
+                            <p class="font-black text-lg" style="color:#E8651A;">$2,500<span class="text-xs font-normal text-gray-400">/person</span></p>
+                        </div>
+                        <a href="#"
+                           class="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                           style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="0">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1520769945061-0a448c463865?w=600&q=80"
+                         alt="Masai Mara"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.7) 0%,transparent 60%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#E8651A;">🦁 Wildlife</span>
+                    </div>
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                        <div>
+                            <p class="text-white/70 text-xs">🇰🇪 Kenya</p>
+                            <p class="text-white font-bold">Masai Mara Reserve</p>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400 text-xs">★★★★★</span>
+                            <span class="text-white/60 text-xs">(203)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-1">
+                        4-Day Masai Mara Big Five Safari
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-3">
+                        See lions, elephants, buffalo, leopards and rhinos in one of Africa's most iconic wildlife reserves.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🗓️ 4 Days
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            👥 Max 6
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🏕️ Lodge
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🚁 Air Transfer
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between pt-3"
+                         style="border-top:1px solid rgba(255,255,255,0.08);">
+                        <div>
+                            <p class="font-black text-lg" style="color:#E8651A;">$1,800<span class="text-xs font-normal text-gray-400">/person</span></p>
+                        </div>
+                        <a href="#"
+                           class="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                           style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="rounded-2xl overflow-hidden card-hover cursor-pointer group"
+                 style="background:rgba(255,255,255,0.05);
+                        border:1px solid rgba(255,255,255,0.08);"
+                 data-aos="fade-up" data-aos-delay="80">
+                <div class="relative h-52 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80"
+                         alt="Victoria Falls"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0"
+                         style="background:linear-gradient(to top,rgba(44,24,16,0.7) 0%,transparent 60%);"></div>
+                    <div class="absolute top-3 left-3">
+                        <span class="text-white text-xs px-2 py-1 rounded-full font-bold"
+                              style="background:#0288D1;">🌊 Adventure</span>
+                    </div>
+                    <div class="absolute bottom-3 left-3 right-3 flex justify-between items-end">
+                        <div>
+                            <p class="text-white/70 text-xs">🇿🇼 Zimbabwe</p>
+                            <p class="text-white font-bold">Victoria Falls</p>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-yellow-400 text-xs">★★★★☆</span>
+                            <span class="text-white/60 text-xs">(45)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-display text-lg font-bold text-white mb-1">
+                        3-Day Victoria Falls Adventure
+                    </h3>
+                    <p class="text-gray-400 text-xs mb-3">
+                        Bungee jumping, white water rafting, sunset cruises and up-close views of the world's largest waterfall.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🗓️ 3 Days
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            👥 Max 15
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🏨 Hotel
+                        </span>
+                        <span class="text-xs px-2 py-1 rounded-full"
+                              style="background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6);">
+                            🎯 Activities
+                        </span>
+                    </div>
+                    <div class="flex items-center justify-between pt-3"
+                         style="border-top:1px solid rgba(255,255,255,0.08);">
+                        <div>
+                            <p class="font-black text-lg" style="color:#E8651A;">$950<span class="text-xs font-normal text-gray-400">/person</span></p>
+                        </div>
+                        <a href="#"
+                           class="text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all hover:scale-105"
+                           style="background:linear-gradient(135deg,#E8651A,#C0392B);">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Package 6 — Custom Package CTA -->
+            <div class="rounded-2xl p-6 flex flex-col justify-center items-center text-center"
+                 style="background:linear-gradient(135deg,#E8651A,#C0392B);"
+                 data-aos="fade-up" data-aos-delay="160">
+                <div class="text-5xl mb-4">🎯</div>
+                <h3 class="font-display text-xl font-bold text-white mb-3">
+                    Want a Custom Package?
+                </h3>
+                <p class="text-white/80 text-sm mb-6">
+                    Tell us your dream African adventure and we'll create a personalized safari just for you.
+                </p>
+                <a href="/contact/"
+                   class="font-bold py-3 px-8 rounded-xl transition-all hover:scale-105"
+                   style="background:#fff; color:#E8651A;">
+                    Plan My Safari →
+                </a>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="text-center mt-12">
+            <button class="px-10 py-4 rounded-full font-bold text-sm transition-all border-2"
+                    style="border-color:#E8651A; color:#E8651A;"
+                    onmouseover="this.style.background='#E8651A'; this.style.color='#fff';"
+                    onmouseout="this.style.background='transparent'; this.style.color='#E8651A';">
+                Load More Packages
+                <i class="fas fa-arrow-down ml-2"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
